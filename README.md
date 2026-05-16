@@ -10,9 +10,9 @@
 
 ---
 
-- 🦀 I'm a Rust programmer who loves writing safe, scalable, and efficient code
-- 🌱 Currently learning 3D modelling in Blender
-- ⭐ My ambition is to become a professional programmer or modeler
+- 🦀 I'm a Rust programmer who loves writing safe, scalable, & efficient code
+- 🌱 Currently learning low level programming & OS internal
+- ⭐ My ambition is to become a professional systems programmer
 
 ---
 
