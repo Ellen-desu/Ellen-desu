@@ -1,6 +1,52 @@
 // Set current year in footer
 document.getElementById("year").textContent = new Date().getFullYear();
 
+// --- Hero Typing Effect ---
+const typingTarget = document.querySelector("[data-typing]");
+if (typingTarget) {
+  const phrases = [
+    "Systems Programmer",
+    "Networking",
+    "HTTP Learner",
+  ];
+
+  let phraseIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+
+  const typeSpeed = 110;
+  const deleteSpeed = 65;
+  const pauseAfterType = 1300;
+  const pauseAfterDelete = 350;
+
+  function tick() {
+    const currentPhrase = phrases[phraseIndex];
+
+    if (isDeleting) {
+      charIndex = Math.max(0, charIndex - 1);
+    } else {
+      charIndex = Math.min(currentPhrase.length, charIndex + 1);
+    }
+
+    typingTarget.textContent = currentPhrase.slice(0, charIndex);
+
+    let delay = isDeleting ? deleteSpeed : typeSpeed;
+
+    if (!isDeleting && charIndex === currentPhrase.length) {
+      isDeleting = true;
+      delay = pauseAfterType;
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      phraseIndex = (phraseIndex + 1) % phrases.length;
+      delay = pauseAfterDelete;
+    }
+
+    window.setTimeout(tick, delay);
+  }
+
+  tick();
+}
+
 // --- Particle Background (Cosmic Stars) ---
 const canvas = document.getElementById("stars-canvas");
 const ctx = canvas.getContext("2d");
